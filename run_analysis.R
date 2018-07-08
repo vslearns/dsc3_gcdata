@@ -1,3 +1,9 @@
+## run_analysis.R
+## This script tidies the data provided by the UCI HAR Dataset.
+## For a step-by-step walkthrough of how this code works, see https://github.com/vslearns/dsc3_gcdata#walkthrough
+
+
+## Ensure the data is downloaded and unzipped.
 check_data_dir <- function() {
   message("Checking data directory.")
   
@@ -18,6 +24,7 @@ check_data_dir <- function() {
   message("Success!\n")
 }
 
+## Install and load the dplyr and reshape2 packages as necessary.
 load_libs <- function() {
   message("Installing/Loading libraries.")
   
@@ -30,6 +37,7 @@ load_libs <- function() {
   message("Success!\n")
 }
 
+## Open filename and return it as a table
 dd.open <- function(filename) {
   message(paste("Opening ", filename, ".", sep=""))
   
@@ -40,6 +48,7 @@ dd.open <- function(filename) {
   file_as_table
 }
 
+## Attach adjusted feature names to the dataset column names.
 feature_descript <- function(dataset) {
   message("Describing features.")
   
@@ -54,6 +63,7 @@ feature_descript <- function(dataset) {
   dataset
 }
 
+## Attach "activity" names to the dataset column names.
 activity_descript <- function(dataset) {
   message("Describing activities.")
   
@@ -66,6 +76,7 @@ activity_descript <- function(dataset) {
   dataset
 }
 
+## Attach "subject" to the dataset column names.
 subject_descript <- function(dataset) {
   message("Describing subjects.")
   
@@ -75,6 +86,7 @@ subject_descript <- function(dataset) {
   dataset
 }
 
+## Load the raw dataset and return the mean and standard deviation dataset.
 load_data_get_ms <- function() {
   message("Loading data.")
   
@@ -104,6 +116,7 @@ load_data_get_ms <- function() {
   dirty_ms_data
 }
 
+## Tidy the dirty dataset!
 tidy <- function(dirty) {
   identifiers <- c("subject", "activity")
   
@@ -126,12 +139,15 @@ tidy <- function(dirty) {
   tidy_data
 }
 
+## Write the dataset to filename.
 write <- function(dataset, filename) {
   message(paste("Writing dataset to file ", filename, ".", sep=""))
   write.table(dataset, file = filename, sep = ",", row.names = FALSE)
   message("Success!\n")
 }
 
+## Run the script.
+## Equivalent to a program's 'main' function.
 run_analysis <- function() {
   message("Running environment checks...")
   check_data_dir()
@@ -148,4 +164,5 @@ run_analysis <- function() {
   message("Analysis complete.")
 }
 
+## The only raw executable statement in the entire file. Starts the script.
 run_analysis()
