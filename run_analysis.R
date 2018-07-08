@@ -1,11 +1,11 @@
 check_data_dir <- function() {
   message("Checking data directory.")
   
-  if (!file.exists("UCI HAR Dataset") & !file.exists("galaxy.zip")) {
+  if (!file.exists("UCI HAR Dataset") & !file.exists("ucihardataset.zip")) {
     message("Downloading data directory.")
     
     source_url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-    dest_file <- "galaxy.zip"
+    dest_file <- "ucihardataset.zip"
     download.file(source_url, destfile = dest_file, method = "curl")
     
     message("Unzipping data directory.")
