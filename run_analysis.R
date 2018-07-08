@@ -146,7 +146,7 @@ write <- function(dataset, filename) {
   message("Success!\n")
 }
 
-## Run the script.
+## Run the script and create a global 'tidy_data' variable.
 ## Equivalent to a program's 'main' function.
 run_analysis <- function() {
   message("Running environment checks...")
@@ -162,6 +162,8 @@ run_analysis <- function() {
   write(tidy_dataset, "tidy_data.csv")
   
   message("Analysis complete.")
+  
+  assign("tidy_data", tidy_dataset, envir = .GlobalEnv)
 }
 
 ## The only raw executable statement in the entire file. Starts the script.

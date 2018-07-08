@@ -35,7 +35,7 @@ select(dirty_data, matches("mean|std"), one_of("subject", "activity"))
 9. The original `dirty_data` set will be deleted from memory.
 10. The `tidy(dirty_dataset)` function will `melt` the `dirty_ms_data` set and then `dcast` it to create a `tidy_data` set. The `melted_data` set will then be destroyed along with the `dirty_data` set.
 11. The `tidy_dataset` will be written to a TXT file to fulfill the project's requirements. It will also be written to a CSV file for convenience and pleasure.
-12. The `run_analysis()` function will end.
+12. The `run_analysis()` function will end after returning `tidy_data` to the environment.
 
 ## In this Repository
 Consistent with the project requirements, the following files are included in this repository:
